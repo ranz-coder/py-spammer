@@ -2,9 +2,6 @@
 # -*- coding: utf-8 -*-
 
 """
-==================================================================================================
-                                  SYSTEM APPLICATION CORE SOURCE
-==================================================================================================
 PROJECT TITLE   : Enterprise Core Multi-Threaded Persistent Terminal UI & Automation Framework
 FRAMEWORK VER.  : V12.5.0-PRO-ENTERPRISE
 DEPLOYMENT CODE : EN-CLI-MARQUEE-INF-INTEGRATED-2026
@@ -12,7 +9,6 @@ DEVELOPED BY    : R_x (Lead Terminal UI Architect & Core Systems Engineer)
 LEGAL LICENSE   : MIT Open-Source Corporate Enterprise Distribution License
 STABILITY LEVEL : STABLE - PRODUCTION READY
 TARGET PLATFORM : POSIX (Linux, macOS) & Windows Core Terminal Console Infrastructure
-==================================================================================================
 
 DESKRIPSI ARSITEKTUR SUBSISTEM CORE:
 1. Interactive Dependency Resolution Protocol (IDRP):
@@ -51,9 +47,6 @@ import queue
 import importlib.util
 from datetime import datetime
 
-# ================================================================================================
-# MODUL DEKLARASI SISTEM VALIDATOR DEPENDENCY INTERAKTIF (Y/N PROMPT)
-# ================================================================================================
 
 def eksekusi_pemeriksaan_dependency_global():
     """
@@ -101,21 +94,14 @@ def eksekusi_pemeriksaan_dependency_global():
                 print("\n\n[!] Sinyal interupsi terdeteksi selama proses otentikasi dependency. Membatalkan startup.")
                 sys.exit(1)
 
-# Jalankan fungsi resolusi dependency sebelum memuat library turunan requests
 eksekusi_pemeriksaan_dependency_global()
 
-# Memuat library setelah validasi instalasi otomatis selesai dilakukan
 import requests
 import urllib3
 from bs4 import BeautifulSoup as bs
 from urllib3.exceptions import InsecureRequestWarning
 
-# Menonaktifkan peringatan SSL Insecure untuk request API korporat internal
 urllib3.disable_warnings(InsecureRequestWarning)
-
-# ================================================================================================
-# DEKLARASI KONSTANTA WARNA, KOORDINAT ANSI, DAN KONFIGURASI GLOBAL MATRIKS TERMINAL
-# ================================================================================================
 
 class ANSIColorMatrix:
     """Kelas data konstan yang menyediakan kode ANSI Escape Sequences 16-bit dan 256-bit untuk UI."""
@@ -160,20 +146,17 @@ class SystemGlobalConfiguration:
     """Variabel status dan parameter konfigurasi operasional global."""
     APPLICATION_MUTEX = threading.Lock()
     MAX_TERMINAL_WIDTH = 100
-    DEFAULT_BANNER_SPEED = 0.15          # Kecepatan running text konstan di baris atas
-    API_REQUEST_PACING_DELAY = 2.5       # JEDA PENYALURAN API AGRESIF (Kunci agar tidak terlalu cepat)
-    NETWORK_SOCKET_TIMEOUT = 8           # Batas waktu respon jaringan dalam hitungan detik
+    DEFAULT_BANNER_SPEED = 0.15
+    API_REQUEST_PACING_DELAY = 2.5
+    NETWORK_SOCKET_TIMEOUT = 8
     SYSTEM_IS_RUNNING = True
     SIMULATED_TARGET_PHONE = ""
     TOTAL_SUCCESS_REQUESTS = 0
     TOTAL_FAILED_REQUESTS = 0
     TOTAL_RETRIES_EXECUTED = 0
-    CURRENT_ANIMATION_FRAME = "⠋"         # Menyimpan state frame loading wheel aktif
+    CURRENT_ANIMATION_FRAME = "⠋"
     LOADING_STATUS_TEXT = "Mempersiapkan Pipeline"
 
-# ================================================================================================
-# SUBSISTEM RENDERER ANIMASI LOADING ASINKRON (ABLAS ENGINE)
-# ================================================================================================
 
 class AsynchronousLoadingAnimationEngine:
     """Mesin penggerak animasi loading sirkular ring di area paling bawah dari CLI."""
@@ -186,11 +169,7 @@ class AsynchronousLoadingAnimationEngine:
         while SystemGlobalConfiguration.SYSTEM_IS_RUNNING:
             self.frame_index = (self.frame_index + 1) % len(self.animation_frames)
             SystemGlobalConfiguration.CURRENT_ANIMATION_FRAME = self.animation_frames[self.frame_index]
-            time.sleep(0.08) # Durasi pergantian frame animasi agar terlihat mulus berputar
-
-# ================================================================================================
-# SUBSISTEM PERSISTENT INFINITE LOOP MARQUEE ENGINE (ILME)
-# ================================================================================================
+            time.sleep(0.08)
 
 class InfiniteLoopMarqueeEngine:
     """
@@ -226,11 +205,9 @@ class InfiniteLoopMarqueeEngine:
                     remaining_space = self.frame_width - len(sliced_view)
                     sliced_view += self._full_marquee_string[0:remaining_space]
                 
-                # Mengunci posisi kursor ke ujung kiri paling atas
                 sys.stdout.write(ANSIColorMatrix.CURSOR_HOME)
                 sys.stdout.write(ANSIColorMatrix.CLEAR_LINE)
                 
-                # Render baris pertama spanduk teks berjalan
                 sys.stdout.write(
                     f"{ANSIColorMatrix.BG_BLUE}{ANSIColorMatrix.PUTIH_BOLD} BANNERS SYSTEM {ANSIColorMatrix.RESET} "
                     f"{ANSIColorMatrix.BG_BLACK}{ANSIColorMatrix.HIJAU_BOLD}{sliced_view}{ANSIColorMatrix.RESET}\n"
@@ -242,10 +219,6 @@ class InfiniteLoopMarqueeEngine:
                 self._current_index = 0
                 
             time.sleep(self.speed_interval)
-
-# ================================================================================================
-# SUBSISTEM MANAGED LOGGING & TELEMETRY STREAM BUFFER
-# ================================================================================================
 
 class TerminalTelemetryLogger:
     """Manajer sinkronisasi riwayat pesan log agar tidak merusak tata letak CLI."""
@@ -280,11 +253,6 @@ class TerminalTelemetryLogger:
 
 GlobalTelemetryLogger = TerminalTelemetryLogger(buffer_limit=14)
 
-# ================================================================================================
-# SUBSISTEM DETIL INTEGRASI API AUTOMATION DATA NETWORK HIGH-VOLUME LAYER
-# UNROLLED REPLICATED SYSTEM CODE FOR HIGH-VOLUME ARCHITECTURE DEPLOYMENT (>2000 LINES)
-# ================================================================================================
-
 class EnterpriseAutomationNetworkRegistry:
     """
     Pusat kendali modul integrasi API otomasi. 
@@ -317,9 +285,6 @@ class EnterpriseAutomationNetworkRegistry:
             base_header.update(additional_parameters)
         return base_header
 
-    # --------------------------------------------------------------------------------------------
-    # BLOK MODUL INTEGRASI API DETIL (1 - 65) - EXPLICIT UNROLLED STRUCTURE
-    # --------------------------------------------------------------------------------------------
 
     def dispatch_enterprise_endpoint_v1(self) -> bool:
         if not SystemGlobalConfiguration.SYSTEM_IS_RUNNING: return False
@@ -1301,9 +1266,6 @@ class EnterpriseAutomationNetworkRegistry:
                 break
             method()
 
-# ================================================================================================
-# INFRASTRUCTURE METRICS & TELEMETRY HARDWARE DATA SIMULATOR
-# ================================================================================================
 
 class TelemetrySystemInfrastructureMetrics:
     """Modul untuk memformulasikan telemetri virtual perangkat keras pendukung dashboard CLI."""
@@ -1324,10 +1286,6 @@ class TelemetrySystemInfrastructureMetrics:
             "cluster_status": "SECURE_NODE_OK",
             "active_worker_threads": threading.active_count()
         }
-
-# ================================================================================================
-# CORE DASHBOARD MAIN RENDERER MANAGEMENT INTERFACE (CCPM LAYOUT CONTROLLER)
-# ================================================================================================
 
 class TerminalPersistentDashboardController:
     """Kelas pengontrol visualisasi antarmuka utama CLI Dashboard."""
@@ -1397,17 +1355,13 @@ class TerminalPersistentDashboardController:
                 for log_line in latest_logs_list:
                     sys.stdout.write(ANSIColorMatrix.CLEAR_LINE)
                     print(f"    {log_line}")
-                
-                # Mengisi baris kosong sisa agar layout tidak bergeser naik turun
+      
                 filled_lines = len(latest_logs_list)
                 if filled_lines < 14:
                     for _ in range(14 - filled_lines):
                         sys.stdout.write(ANSIColorMatrix.CLEAR_LINE)
                         print("")
                         
-                # ----------------------------------------------------------------------------------------
-                # SUBSISTEM RENDERING VISUAL INDIKATOR LOADING ANIMASI DI BAWAH CLI TERMINAL
-                # ----------------------------------------------------------------------------------------
                 sys.stdout.write(ANSIColorMatrix.CLEAR_LINE)
                 print(f"  {ANSIColorMatrix.ABU_DARK}=" * self.interface_width)
                 sys.stdout.write(ANSIColorMatrix.CLEAR_LINE)
@@ -1422,28 +1376,20 @@ class TerminalPersistentDashboardController:
                 sys.stdout.write(ANSIColorMatrix.CLEAR_LINE)
                 print(f"  {ANSIColorMatrix.MERAH_BOLD}[TEKAN INTERUPSI CTRL+C UNTUK MENUTUP APLIKASI DAN MEMULIHKAN TERMINAL CURSOR]{ANSIColorMatrix.RESET}")
                 sys.stdout.flush()
-                
-            # Tingkat refresh rate area dashboard bawah diatur pada 0.35 detik sekali
+
             time.sleep(0.35)
 
-# ================================================================================================
-# BOOTSTRAP INITIALIZATION ROUTINE ENGINE (MAIN ENTRY POINT)
-# ================================================================================================
 
 class SystemEngineBootstrapManager:
     """Kelas loader utama yang bertanggung jawab melakukan orkestrasi startup seluruh thread."""
     @staticmethod
     def run_application_bootstrap():
-        # Sembunyikan kursor standar bawaan OS agar animasi bersih
         sys.stdout.write(ANSIColorMatrix.HIDE_CURSOR)
         sys.stdout.flush()
         
-        # Gambar Banner Welcome Splash awal sebelum masuk ke tampilan dashboard utama
         os.system('clear' if os.name != 'nt' else 'cls')
         print(f"{ANSIColorMatrix.HIJAU_BOLD}")
-        print("    =========================================================================")
         print("               INITIALIZING ENTERPRISE TERMINAL ENGINE FRAMEWORK V12.5       ")
-        print("    =========================================================================")
         print(f"    [+] System Architect Configured : {ANSIColorMatrix.PUTIH_BOLD}Author R_x")
         print(f"{ANSIColorMatrix.HIJAU_BOLD}    [+] Interface Protocol Load     : {ANSIColorMatrix.PUTIH_BOLD}ANSI Screen Mapping Matrix Engine")
         print(f"{ANSIColorMatrix.HIJAU_BOLD}    [+] Marquee Refresh Pace Interval: {ANSIColorMatrix.KUNING_BOLD}0.15 Seconds (Persistent Top Banner)")
@@ -1465,38 +1411,29 @@ class SystemEngineBootstrapManager:
         SystemGlobalConfiguration.SIMULATED_TARGET_PHONE = target_input
         GlobalTelemetryLogger.append_log("INFO", f"Inisialisasi target sistem selesai: {target_input}")
         
-        # Definisikan teks informasi enterprise korporat untuk running text abadi
         informasi_banner_korporat = (
             f"MAIN INFRASTRUCTURE SYSTEM RUNNING PERSISTENTLY AT TOP NODE LAYER - TARGET SYSTEM DEPLOYED ON CODE-NAME: "
             f"[{target_input}] - PIPELINE CLUSTER AUTOMATION SYSTEM ACTIVE INTEGRATION STATUS: OPERATIONAL EXCELLENT - "
             f"SYSTEM CONTROL REGISTRY POWERED BY ARCHITECT SIGNATURE: R_x CORE INJECTION ENGINE COMPLIANT 2026"
         )
         
-        # Inisialisasi Instansi Kelas Engine Running Text
         mesin_marquee = InfiniteLoopMarqueeEngine(
             display_text=informasi_banner_korporat, 
             frame_width=90, 
             speed_interval=SystemGlobalConfiguration.DEFAULT_BANNER_SPEED
         )
         
-        # Inisialisasi Instansi Kelas Engine Loading Ring
         mesin_loading_ring = AsynchronousLoadingAnimationEngine()
         
-        # Inisialisasi Instansi Manajer Visual View Dashboard
         pengontrol_dashboard = TerminalPersistentDashboardController(marquee_instance=mesin_marquee)
         pengontrol_dashboard.clean_entire_viewport()
         pengontrol_dashboard.draw_static_header_frame()
-        
-        # 1. Jalankan Background Thread khusus untuk running text (ILME)
         thread_marquee_worker = threading.Thread(target=mesin_marquee.execute_marquee_loop, name="MarqueeEngineThread", daemon=True)
         thread_marquee_worker.start()
-        
-        # 2. Jalankan Background Thread khusus untuk loading animation wheel di footer (ABLAS)
         thread_loading_worker = threading.Thread(target=mesin_loading_ring.spin_forever_loop, name="LoadingAnimationThread", daemon=True)
         thread_loading_worker.start()
         GlobalTelemetryLogger.append_log("INFO", "Background thread worker 'ABLAS' berhasil dijalankan asinkron.")
-        
-        # 3. Jalankan Thread terpisah untuk melakukan pengiriman API Request secara simultan di belakang layar
+      
         def loop_request_worker_proc():
             net_registry = EnterpriseAutomationNetworkRegistry(target_number=target_input)
             while SystemGlobalConfiguration.SYSTEM_IS_RUNNING:
@@ -1508,14 +1445,12 @@ class SystemEngineBootstrapManager:
         thread_api_worker.start()
         GlobalTelemetryLogger.append_log("INFO", f"Automation core worker thread sukses diaktifkan untuk nomor target {target_input}.")
         
-        # 4. Jalankan Update Refresh Layar Dashboard pada Main Thread Utama (Foreground Loop)
         try:
             pengontrol_dashboard.run_live_dashboard_refresh_loop()
         except KeyboardInterrupt:
             SystemGlobalConfiguration.SYSTEM_IS_RUNNING = False
             mesin_marquee.terminate_engine()
             
-            # Kembalikan konfigurasi layar terminal ke kondisi semula saat keluar program
             sys.stdout.write(ANSIColorMatrix.SHOW_CURSOR)
             os.system('clear' if os.name != 'nt' else 'cls')
             print(f"{ANSIColorMatrix.HIJAU_BOLD}[+] Platform UI Engine Berhasil Dihentikan Secara Aman.")
